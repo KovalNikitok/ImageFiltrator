@@ -4,6 +4,6 @@ namespace ImageFiltrator_ConsoleApp.resources.interfaces
 {
     interface IImageFilter
     {
-        void ApplyFilter(IImage image, ImageFilter imageFilter);
+        void ApplyFilter(IImageSignature imageSignature, ImageFilter imageFilter);
     }
 }

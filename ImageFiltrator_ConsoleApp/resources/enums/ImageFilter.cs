@@ -7,6 +7,7 @@ namespace ImageFiltrator_ConsoleApp.resources.enums
         Reflect,
         Sepia,
         GrayScale,
-        Blur
+        Blur,
+        NONE
     };
 }

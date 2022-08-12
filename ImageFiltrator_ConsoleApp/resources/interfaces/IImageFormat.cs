@@ -2,9 +2,8 @@
 
 namespace ImageFiltrator_ConsoleApp.resources.interfaces
 {
-    interface IImageReader
+    interface IImageFormat
     {
-        byte[] ReadImage();
-        ImageType DefineImage();
+        ImageType DefineImage(IImageReader imageReader);
     }
 }
