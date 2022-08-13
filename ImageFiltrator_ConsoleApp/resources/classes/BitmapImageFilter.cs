@@ -48,8 +48,11 @@ namespace ImageFiltrator_ConsoleApp.resources.classes
         private void SaveImage(string fileName = null)
         {
             if (fileName == null)
-                fileName = $"output.{Image.RawFormat.ToString().ToLower()}";
-            using (FileStream fileStream = new FileStream(fileName, FileMode.Create))
+                fileName = $"output";
+
+            using (FileStream fileStream = new FileStream(
+                string.Concat(fileName, ".", Image.RawFormat.ToString().ToLower()),
+                FileMode.Create))
             {
                 Image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Png);
                 Image.Dispose();

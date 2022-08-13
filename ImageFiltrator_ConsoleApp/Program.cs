@@ -1,9 +1,6 @@
-﻿using ImageFiltrator_ConsoleApp.resources.classes;
-using ImageFiltrator_ConsoleApp.resources.interfaces;
-using ImageFiltrator_ConsoleApp.resources.enums;
-using System.Drawing;
+﻿using System.Drawing;
 using System;
-using System.IO;
+using ImageFiltrator_ConsoleApp.resources.classes;
 
 namespace ImageFiltrator_ConsoleApp
 {
@@ -12,11 +9,14 @@ namespace ImageFiltrator_ConsoleApp
         static void Main(string[] argv)
         {
             Bitmap image;
+            string outputFileName = "output";
             if (argv.Length > 0)
             {
                 try
                 {
-                    image = new Bitmap(argv[1]);
+                    image = new Bitmap(argv[0]);
+                    if (argv.Length > 1)
+                        outputFileName = argv[1];
                 }
                 catch (Exception ex)
                 {
@@ -34,24 +34,10 @@ namespace ImageFiltrator_ConsoleApp
                 image = new Bitmap("3.png");
             Console.Write("0 - Horizontal Reflect\n1 - Vertical Reflect\n2 - Sepia\n3 - GrayScale\n4 - Blur\nEnter filter num:");
             //IImageFilter imageFilter = new BitmapImageFilter();
-            UseImageFilter(image);
+            FilterUsing.UseImageFilter(image: image, outputFileName: outputFileName);
         }
 
-        static void UseImageFilter(Bitmap image, IImageFilter imageFilter = null)
-        {
-            if (image == null)
-                return;
 
-            if (int.TryParse(Console.ReadKey().KeyChar.ToString(), out int keyFlag))
-            {
-                if (keyFlag < (int)ImageFilter.NONE && keyFlag >= (int)ImageFilter.HorizontalReflect)
-                {
-                    if (imageFilter == null)
-                        imageFilter = new BitmapImageFilter(image, (ImageFilter)keyFlag);
-                    imageFilter.ApplyFilter();
-                }
-            }
-        }
 
     }
 }
