@@ -1,10 +1,9 @@
-﻿
-
-namespace ImageFiltrator_ConsoleApp.resources.enums
+﻿namespace ImageFiltrator_ConsoleApp.resources.enums
 {
     enum ImageFilter
     {
-        Reflect,
+        HorizontalReflect,
+        VerticalReflect,
         Sepia,
         GrayScale,
         Blur,
