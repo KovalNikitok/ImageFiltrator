@@ -6,9 +6,6 @@ namespace ImageFiltrator_ConsoleApp.resources.classes
     {
         private void HorizontalReflectFilter()
         {
-            if (Image == null)
-                return;
-
             Color tempPixel;
             for (int i = 0, length = Image.Width / 2; i < length; i++)
             {
@@ -23,9 +20,6 @@ namespace ImageFiltrator_ConsoleApp.resources.classes
         }
         private void VerticalReflectFilter()
         {
-            if (Image == null)
-                return;
-
             Color tempPixel;
             for (int i = 0, length = Image.Width; i < length; i++)
             {

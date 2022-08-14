@@ -24,6 +24,8 @@ namespace ImageFiltrator_ConsoleApp.resources.classes
         }
         public void ApplyFilter()
         {
+            if (Image == null)
+                return;
             switch (ImageFilter)
             {
                 case ImageFilter.HorizontalReflect:
@@ -33,10 +35,13 @@ namespace ImageFiltrator_ConsoleApp.resources.classes
                     VerticalReflectFilter();
                     break;
                 case ImageFilter.Sepia:
+                    SepiaFilter();
                     break;
                 case ImageFilter.GrayScale:
+                    GrayScaleFilter();
                     break;
                 case ImageFilter.Blur:
+                    BlurFilter();
                     break;
                 default:
                     System.Console.WriteLine("Undefined image filter!");

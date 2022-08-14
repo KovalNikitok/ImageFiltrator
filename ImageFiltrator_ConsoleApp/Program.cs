@@ -31,13 +31,13 @@ namespace ImageFiltrator_ConsoleApp
                 }
             }
             else
-                image = new Bitmap("3.png");
-            Console.Write("0 - Horizontal Reflect\n1 - Vertical Reflect\n2 - Sepia\n3 - GrayScale\n4 - Blur\nEnter filter num:");
-            //IImageFilter imageFilter = new BitmapImageFilter();
+                image = new Bitmap("4.png");
+            // Console.Write("0 - Horizontal Reflect\n1 - Vertical Reflect\n2 - Sepia\n3 - GrayScale\n4 - Blur\nEnter filter num:");
+            Console.Write("0 - Horizontal Reflect\n1 - Vertical Reflect\n2 - Sepia" +
+                "\n3 - GrayScale\n4 - Blur\n" +
+                "Enter filter num:");
+            // IImageFilter imageFilter = new BitmapImageFilter();
             FilterUsing.UseImageFilter(image: image, outputFileName: outputFileName);
         }
-
-
-
     }
 }

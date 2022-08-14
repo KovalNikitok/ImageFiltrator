@@ -1,7 +1,8 @@
-﻿using ImageFiltrator_ConsoleApp.resources.enums;
-using ImageFiltrator_ConsoleApp.resources.interfaces;
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using ImageFiltrator_ConsoleApp.resources.enums;
+using ImageFiltrator_ConsoleApp.resources.interfaces;
 
 namespace ImageFiltrator_ConsoleApp.resources.classes
 {
@@ -16,9 +17,13 @@ namespace ImageFiltrator_ConsoleApp.resources.classes
             {
                 if (keyFlag < (int)ImageFilter.NONE && keyFlag >= (int)ImageFilter.HorizontalReflect)
                 {
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
                     if (imageFilter == null)
                         imageFilter = new BitmapImageFilter(image, (ImageFilter)keyFlag, outputFileName);
                     imageFilter.ApplyFilter();
+                    stopwatch.Stop();
+                    Console.WriteLine($"\nConverting by: {stopwatch.ElapsedMilliseconds} ms");
                 }
             }
         }
